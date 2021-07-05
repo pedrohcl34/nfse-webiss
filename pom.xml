@@ -3,7 +3,7 @@
 
 		<groupId>br.com.webiss</groupId>
 	  <artifactId>nfs-webiss</artifactId>
-		<version>0.0.1</version>
+		<version>1.0.1</version>
 
 
   <name>Api de Integração WebISS</name>

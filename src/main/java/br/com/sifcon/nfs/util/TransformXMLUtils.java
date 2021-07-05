@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -29,7 +30,8 @@ public class TransformXMLUtils {
 
 	public static Document fromXMLToDOM(String envelopeXML)
 			throws SAXException, IOException, ParserConfigurationException {
-		ByteArrayInputStream in = new ByteArrayInputStream(envelopeXML.getBytes());
+		//envelopeXML = new String(envelopeXML.getBytes("ISO-8859-1"), "UTF-8");
+		ByteArrayInputStream in = new ByteArrayInputStream(envelopeXML.replaceAll("&", "&amp;").getBytes());
 		return documentFactory.newDocumentBuilder().parse(in);
 	}
 

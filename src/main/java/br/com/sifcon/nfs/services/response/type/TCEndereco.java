@@ -53,7 +53,7 @@ public class TCEndereco extends ComplexTypeBase {
 		this.codigoMunicipio = nodeCodigoMunicipio!=null? Integer.parseInt(nodeCodigoMunicipio.getTextContent()):null;
 		this.uf = nodeUf!=null?nodeUf.getTextContent():null;
 		this.codigoPais = nodeCodigoPais!=null?Integer.parseInt(nodeCodigoPais.getTextContent()):null;
-		this.cep = nodeCep!=null?nodeCep.getTextContent():null;
+		this.cep = nodeCep!=null?nodeCep.getTextContent().replace(".", "").replace("-", ""):null;
 		
 	}
 

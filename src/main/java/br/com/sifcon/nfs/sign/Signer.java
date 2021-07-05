@@ -2,16 +2,13 @@ package br.com.sifcon.nfs.sign;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
-import java.security.KeyException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
-import java.security.PublicKey;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.security.spec.InvalidKeySpecException;
 import java.util.Collections;
 
 import javax.xml.crypto.MarshalException;
@@ -32,7 +29,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -100,6 +96,7 @@ public class Signer {
 		try {
 			document = TransformXMLUtils.fromXMLToDOM(xmlEnvelope);
 		} catch (SAXException e) {
+			e.printStackTrace();
 			throw new NfsSignException("Não foi possível converter Documento", "Documento XML inválido!", e);
 		} catch (IOException e) {
 			throw new NfsSignException("Não foi possível localizar o arquivo", "Arquivo XML inválido!", e);
